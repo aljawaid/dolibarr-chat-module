@@ -32,6 +32,10 @@ header('Content-Type: text/css');
 overflow: hidden !important;
 }
 
+.ecm-in-layout-center {
+height: 100%;
+}
+
 /*---- Bootstrap ----*/
 
 .form-control, .form-control:before, .form-control:after {
@@ -84,7 +88,7 @@ overflow: hidden !important;
 }
 
 textarea.form-control {
-    height: auto;
+    height: 85px;
 }
 
 .btn {
@@ -279,7 +283,7 @@ small, .small {
 }
 
 #private-msg-textarea {
-    height: 65px;
+    height: 60px;
 }
 
 .private-msg {
@@ -331,15 +335,22 @@ small, .small {
 .msg-wrap
 {
     padding:10px;
-    height: 535px;
-    max-height: 535px;
+    height: 76%;
     overflow: auto;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .time
 {
     color:#bfbfbf;
+}
+
+#chatForm
+{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
 }
 
 .send-wrap
