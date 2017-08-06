@@ -308,7 +308,7 @@ else $classviewhide='visible';
             <div class="input-group">
                 <input name="filter_user" class="search-query form-control" placeholder="<?php echo $langs->trans("SearchPlaceHolder"); ?>" type="text" value="<?php echo $filter_user;  ?>">
                 <a href="javascript:void()" onclick="document.getElementById('searchForm').submit();" class="btn btn-danger">
-                    <img class="btn-icon" title="" alt="" src="img/search.png" />
+                    <img class="" title="" alt="" src="img/search.png" />
                 </a>
             </div>
         </div>
