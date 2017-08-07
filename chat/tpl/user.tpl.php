@@ -20,6 +20,8 @@
  *       \brief      Template of message(s)
  */
 
+$mod_path = $GLOBALS['mod_path'];
+
 require_once DOL_DOCUMENT_ROOT.$mod_path.'/chat/lib/chat.lib.php';
 
 

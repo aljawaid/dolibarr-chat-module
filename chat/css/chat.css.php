@@ -140,13 +140,6 @@ small, .small {
     border-radius: 4px;
 }
 
-.msg-text {
-    width: 85%;
-    padding-right: 15px;
-    padding-left: 15px;
-    float: left;
-}
-
 .input-group {
     position: relative;
 }
@@ -186,10 +179,6 @@ small, .small {
 
 .more-width {
     min-width: 140px;
-}
-
-.align-middle {
-    vertical-align: middle;
 }
 
 .cursor-pointer {
@@ -290,6 +279,13 @@ small, .small {
     background: #FBF9FA;
     border-radius: 20px;
     border: 1px solid #f3f3f3;
+}
+
+.msg-text {
+    width: 85%;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: left;
 }
 
 .msg-attachment {

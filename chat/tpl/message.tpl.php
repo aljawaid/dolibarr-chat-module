@@ -20,6 +20,8 @@
  *       \brief      Template of message(s)
  */
 
+$mod_path = $GLOBALS['mod_path'];
+
 require_once DOL_DOCUMENT_ROOT.$mod_path.'/chat/lib/chat.lib.php';
 
 
@@ -69,8 +71,12 @@ foreach ($messages as $msg)
                 echo Form::showphoto('userphoto', $userstatic, 32, 32, 0, '', 'small', 0, 1);
             ?>
         </a>
-        <div class="dropdown pull-right">
-            <span class="dropbtn"><img class="btn-icon btn-small-icon" title="" alt="" src="img/arrow-down.png" /></span>
+        <?php
+            if (! isset($hide_options) || $hide_options != true)
+            {
+        ?>
+        <div class="dropdown pull-right" id="<?php echo $hide_options; ?>">
+            <span class="dropbtn"><img class="btn-icon btn-small-icon" title="" alt="" src="<?php echo DOL_URL_ROOT.$mod_path.'/chat/img/arrow-down.png'; ?>" /></span>
             <div class="dropdown-content dropdown-right">
                 <?php
                     if ($is_private_msg)
@@ -102,9 +108,12 @@ foreach ($messages as $msg)
                 ?>
             </div>
         </div>
+        <?php
+            } // fin if (! isset($hide_options) || $hide_options != true)
+        ?>
         <div class="media-body">
             <small class="pull-right time">
-                <img class="btn-icon btn-small-icon" title="" alt="" src="img/time.png" />
+                <img class="btn-icon btn-small-icon" title="" alt="" src="<?php echo DOL_URL_ROOT.$mod_path.'/chat/img/time.png'; ?>" />
                 <?php
                     echo dol_print_date($db->jdate($msg->post_time),"hour");
                 ?>
@@ -127,13 +136,13 @@ foreach ($messages as $msg)
                             $userstatic->gender = $msg->user_to->gender;
                             $userstatic->photo = $msg->user_to->photo;
 
-                            $msgtitle .= ' <img class="btn-icon" title="'.$langs->trans("PrivateMessageTo").'" alt="" src="img/private.png" /> '.$userstatic->getFullName($langs);
+                            $msgtitle .= ' <img class="btn-icon" title="'.$langs->trans("PrivateMessageTo").'" alt="" src="'.DOL_URL_ROOT.$mod_path.'/chat/img/private.png'.'" /> '.$userstatic->getFullName($langs);
                         }
                         else // si nn si c'est le destinataire
                         {
                             $userFrom = $msgtitle; // sauvegarde du nom complet de l'émetteur
                             
-                            $msgtitle = '<img class="btn-icon" title="'.$langs->trans("PrivateMessageFrom").'" alt="" src="img/private.png" /> '.$userFrom;
+                            $msgtitle = '<img class="btn-icon" title="'.$langs->trans("PrivateMessageFrom").'" alt="" src="'.DOL_URL_ROOT.$mod_path.'/chat/img/private.png'.'" /> '.$userFrom;
                         }
                     }
 
@@ -149,7 +158,7 @@ foreach ($messages as $msg)
                     $message = urllink($message);
                     
                     // On transforme/affiche les émoticones/smilies
-                    $message = parseSmiley($message);
+                    $message = parseSmiley($message, DOL_URL_ROOT.$mod_path.'/chat/');
                     
                     echo $message;
                 ?>
@@ -173,7 +182,7 @@ foreach ($messages as $msg)
                     }
                 ?>
                         <span class="msg-attachment">
-                            <img class="btn-icon btn-small-icon" title="<?php echo $msg->attachment_name; ?>" alt="" src="img/attachment.png"/>
+                            <img class="btn-icon btn-small-icon" title="<?php echo $msg->attachment_name; ?>" alt="" src="<?php echo DOL_URL_ROOT.$mod_path.'/chat/img/attachment.png'; ?>"/>
                             <?php
                                 // Show attachment file name with link to download
                                 $filename = '/attachments/'.dol_sanitizeFileName($msg->attachment_name);

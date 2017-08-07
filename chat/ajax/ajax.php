@@ -35,6 +35,7 @@ dol_include_once($mod_path.'/chat/class/chat.class.php');
 // Get parameters
 $action	= GETPOST('action','alpha');
 $filter_user = GETPOST('filter_user','alpha');
+$hide_options = GETPOST('hide_options','alpha');
 
 // Access control
 if ($user->socid > 0 || !$user->rights->chat->lire) {
@@ -77,4 +78,38 @@ if (isset($action) && ! empty($action))
                 include_once DOL_DOCUMENT_ROOT.$mod_path.'/chat/tpl/user.tpl.php';
             }
         } // fin if ($action == 'fetch_users')
+        else if ($action == 'get_popup_html')
+	{
+            $object = new Chat($db);
+            
+            // récupération des messages
+            $result = $object->fetch_messages($user);
+
+            if ($result)
+            {
+                include_once DOL_DOCUMENT_ROOT.$mod_path.'/chat/tpl/popup.tpl.php';
+            }
+        } // fin if ($action == 'get_popup_html')
+        else if ($action == 'send_msg')
+	{
+            $msg = GETPOST('msg', 'alpha');
+            
+            if (! empty($msg))
+            {
+                $_POST['action'] = 'send';
+                $_POST['text'] = $msg;
+                
+                ob_start();
+                
+                include_once DOL_DOCUMENT_ROOT.$mod_path.'/chat/index.php';
+                
+                $output = ob_get_clean();
+                
+                print 'OK';
+            }
+            else
+            {
+                print 'KO, empty msg';
+            }
+        } // fin if ($action == 'send_msg')
 }

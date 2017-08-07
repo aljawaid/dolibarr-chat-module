@@ -79,38 +79,38 @@ function cleanattachmentname($attachmentname)
         return substr($attachmentname, strpos($attachmentname, "_") + 1);
 }
 
-function getSmilies()
+function getSmilies($path = "")
 {
     $smilies=array(
-                '&gt;:(' => "<img class='smiley' src='img/smilies/nervous.png'>",
-                ':\'(' => "<img class='smiley' src='img/smilies/cry.png'>",
-                '3:)' => "<img class='smiley' src='img/smilies/evil.png'>",
-                'o:)' => "<img class='smiley' src='img/smilies/angel.png'>",
-                ':*' => "<img class='smiley' src='img/smilies/kiss.png'>",
-                '&lt;3' => "<img class='smiley' src='img/smilies/heart.png'>",
-                '^_^' => "<img class='smiley' src='img/smilies/great.png'>",
-                '-_-' => "<img class='smiley' src='img/smilies/malicious.png'>",
-                'o.O' => "<img class='smiley' src='img/smilies/surprised.png'>",
-                '&gt;:o' => "<img class='smiley' src='img/smilies/anger.png'>",
-		':)' => "<img class='smiley' src='img/smilies/happy.png'>",
-		':(' => "<img class='smiley' src='img/smilies/sad.png'>",
-                ':P' => "<img class='smiley' src='img/smilies/joke.png'>",
-                ';)' => "<img class='smiley' src='img/smilies/wink.png'>",
-                ':D' => "<img class='smiley' src='img/smilies/laugh.png'>",
-                ':o' => "<img class='smiley' src='img/smilies/wondering.png'>",
-                '8|' => "<img class='smiley' src='img/smilies/cool.png'>",
-                ':v' => "<img class='smiley' src='img/smilies/pacman.png'>",
-                ':3' => "<img class='smiley' src='img/smilies/cat.png'>",
-                '(y)' => "<img class='smiley' src='img/smilies/like.png'>",
-                ':poop:' => "<img class='smiley' src='img/smilies/poop.png'>"
+                '&gt;:(' => "<img class='smiley' src='".$path."img/smilies/nervous.png'>",
+                ':\'(' => "<img class='smiley' src='".$path."img/smilies/cry.png'>",
+                '3:)' => "<img class='smiley' src='".$path."img/smilies/evil.png'>",
+                'o:)' => "<img class='smiley' src='".$path."img/smilies/angel.png'>",
+                ':*' => "<img class='smiley' src='".$path."img/smilies/kiss.png'>",
+                '&lt;3' => "<img class='smiley' src='".$path."img/smilies/heart.png'>",
+                '^_^' => "<img class='smiley' src='".$path."img/smilies/great.png'>",
+                '-_-' => "<img class='smiley' src='".$path."img/smilies/malicious.png'>",
+                'o.O' => "<img class='smiley' src='".$path."img/smilies/surprised.png'>",
+                '&gt;:o' => "<img class='smiley' src='".$path."img/smilies/anger.png'>",
+		':)' => "<img class='smiley' src='".$path."img/smilies/happy.png'>",
+		':(' => "<img class='smiley' src='".$path."img/smilies/sad.png'>",
+                ':P' => "<img class='smiley' src='".$path."img/smilies/joke.png'>",
+                ';)' => "<img class='smiley' src='".$path."img/smilies/wink.png'>",
+                ':D' => "<img class='smiley' src='".$path."img/smilies/laugh.png'>",
+                ':o' => "<img class='smiley' src='".$path."img/smilies/wondering.png'>",
+                '8|' => "<img class='smiley' src='".$path."img/smilies/cool.png'>",
+                ':v' => "<img class='smiley' src='".$path."img/smilies/pacman.png'>",
+                ':3' => "<img class='smiley' src='".$path."img/smilies/cat.png'>",
+                '(y)' => "<img class='smiley' src='".$path."img/smilies/like.png'>",
+                ':poop:' => "<img class='smiley' src='".$path."img/smilies/poop.png'>"
 	);
     
     return $smilies;
 }
 
-function parseSmiley($text)
+function parseSmiley($text, $path = "")
 {
-	$smilies = getSmilies();
+	$smilies = getSmilies($path);
 
 	return str_replace(array_keys($smilies), array_values($smilies), $text);
 }

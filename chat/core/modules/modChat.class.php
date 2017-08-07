@@ -54,20 +54,20 @@ class modChat extends DolibarrModules
 		$this->description = "Gestion de chat";
 
 		// Possible values for version are: 'development', 'experimental', 'dolibarr' or version
-		$this->version = '1.0.1';
+		$this->version = '1.1.0';
 
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		$this->special = 0;
 		$this->picto = "chat@chat";
 
 		// Module parts (css, js, ...)
-		$this->module_parts = array(/*
+		$this->module_parts = array(
 			'css' => array(
-				'chat/css/chat.css.php'
+				'chat/css/popup.css.php'
 			),
 			'js' => array(
 				'chat/js/chat.js.php'
-			)*/
+			)
 		);
 
 		// Data directories to create when module is enabled

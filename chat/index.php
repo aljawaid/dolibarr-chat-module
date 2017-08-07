@@ -27,12 +27,21 @@
 if (! defined('REQUIRE_JQUERY_LAYOUT'))  define('REQUIRE_JQUERY_LAYOUT','1');
 //if (! defined('REQUIRE_JQUERY_BLOCKUI')) define('REQUIRE_JQUERY_BLOCKUI', 1);
 
-// Load Dolibarr environment
 global $mod_path;
-$mod_path = "";
-if (false === (@include '../main.inc.php')) {  // From htdocs directory
-	require '../../main.inc.php'; // From "custom" directory
-        $mod_path = "/custom";
+
+// use this to avoid main.inc.php multi includes error, @include_once/@require_once don't seems to work when adding if statement on custom folder, between, removing custom folder support may be an easy solution
+if (isset($GLOBALS['mod_path']))
+{
+    $mod_path = $GLOBALS['mod_path'];
+}
+else
+{
+    $mod_path = "";
+    // Load Dolibarr environment
+    if (false === (@include '../main.inc.php')) {  // From htdocs directory
+            require '../../main.inc.php'; // From "custom" directory
+            $mod_path = "/custom";
+    }
 }
 
 dol_include_once($mod_path.'/chat/class/chat.class.php');
