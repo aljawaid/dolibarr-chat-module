@@ -24,6 +24,10 @@ Module500001Name = Chat
 # Module description 'ModuleXXXDesc'
 # (where XXX is value of numeric property 'numero' of module)
 Module500001Desc = Module de chat confectionné pour dolibarr
+# Permissions
+Permission500002 = Lire les messages et télécharger les pièces jointes du chat
+Permission500003 = Supprimer ses messages du chat
+Permission500004 = Supprimer n'importe quel message du chat
 
 #
 # Page d'administration
