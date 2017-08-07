@@ -29,7 +29,7 @@
 //require_once DOL_DOCUMENT_ROOT."/societe/class/societe.class.php";
 //require_once DOL_DOCUMENT_ROOT."/product/class/product.class.php";
 
-require_once DOL_DOCUMENT_ROOT.'/chat/class/chatMessage.class.php';
+require_once 'chatMessage.class.php';
 
 /**
  * Put your class' description here

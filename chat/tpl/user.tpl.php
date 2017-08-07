@@ -20,7 +20,7 @@
  *       \brief      Template of message(s)
  */
 
-require_once DOL_DOCUMENT_ROOT.'/chat/lib/chat.lib.php';
+require_once DOL_DOCUMENT_ROOT.$mod_path.'/chat/lib/chat.lib.php';
 
 
 global $db, $conf, $user;
@@ -48,7 +48,7 @@ foreach ($object->users as $obj)
         </a>
         <div class="media-body">
             <small class="pull-right">
-                <a href="<?php echo DOL_URL_ROOT.'/chat/index.php?action=private_msg&user_to_id='.$obj->rowid; ?>">
+                <a href="<?php echo DOL_URL_ROOT.$mod_path.'/chat/index.php?action=private_msg&user_to_id='.$obj->rowid; ?>">
                     <img class="btn-icon" title="<?php echo $langs->trans("SendPrivateMessage"); ?>" alt="" src="img/reply.png" />
                 </a>
             </small>

@@ -28,12 +28,15 @@ if (! defined('REQUIRE_JQUERY_LAYOUT'))  define('REQUIRE_JQUERY_LAYOUT','1');
 //if (! defined('REQUIRE_JQUERY_BLOCKUI')) define('REQUIRE_JQUERY_BLOCKUI', 1);
 
 // Load Dolibarr environment
+global $mod_path;
+$mod_path = "";
 if (false === (@include '../main.inc.php')) {  // From htdocs directory
 	require '../../main.inc.php'; // From "custom" directory
+        $mod_path = "/custom";
 }
 
-dol_include_once('/chat/class/chat.class.php');
-require_once DOL_DOCUMENT_ROOT.'/chat/lib/chat.lib.php';
+dol_include_once($mod_path.'/chat/class/chat.class.php');
+require_once DOL_DOCUMENT_ROOT.$mod_path.'/chat/lib/chat.lib.php';
 
 global $db, $langs, $user;
 
@@ -185,7 +188,7 @@ $morejs=array();
 
 $moreheadcss="
 <!-- dol_screenheight=".$_SESSION["dol_screenheight"]." -->
-<link rel=\"stylesheet\" type=\"text/css\" href=\"".DOL_URL_ROOT."/chat/css/chat.css.php\">
+<link rel=\"stylesheet\" type=\"text/css\" href=\"".DOL_URL_ROOT.$mod_path."/chat/css/chat.css.php\">
 <style type=\"text/css\">
     #containerlayout {
         height:     ".$maxheightwin."px;
@@ -223,7 +226,7 @@ $moreheadjs=empty($conf->use_javascript_ajax)?"":"
         
         function fetchMessages() {
             setTimeout( function(){
-                    $.get( '".DOL_URL_ROOT.'/chat/ajax/ajax.php'."', {
+                    $.get( '".DOL_URL_ROOT.$mod_path.'/chat/ajax/ajax.php'."', {
                             action: \"fetch_msgs\"
                     },
                     function(response) {
@@ -242,7 +245,7 @@ $moreheadjs=empty($conf->use_javascript_ajax)?"":"
         }
         
         function fetchUsers() {
-                    $.get( '".DOL_URL_ROOT.'/chat/ajax/ajax.php'."', {
+                    $.get( '".DOL_URL_ROOT.$mod_path.'/chat/ajax/ajax.php'."', {
                             action: \"fetch_users\",
                             filter_user: \"".$filter_user."\"
                     },
@@ -322,7 +325,7 @@ else $classviewhide='visible';
 
     if ($result)
     {
-        include_once DOL_DOCUMENT_ROOT.'/chat/tpl/user.tpl.php';
+        include_once DOL_DOCUMENT_ROOT.$mod_path.'/chat/tpl/user.tpl.php';
     }
     
 // End left panel
@@ -342,7 +345,7 @@ else $classviewhide='visible';
     
     if ($result)
     {
-        include_once DOL_DOCUMENT_ROOT.'/chat/tpl/message.tpl.php';
+        include_once DOL_DOCUMENT_ROOT.$mod_path.'/chat/tpl/message.tpl.php';
     }
 ?>
     </div> <!-- end div id="chat_container" class="msg-wrap" -->

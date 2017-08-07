@@ -21,13 +21,16 @@
  */
 
 // Load Dolibarr environment
-if (false === (@include '../main.inc.php')) {  // From htdocs directory
-	require '../../main.inc.php'; // From "custom" directory
+global $mod_path;
+$mod_path = "";
+if (false === (@include '../../main.inc.php')) {  // From htdocs directory
+	require '../../../main.inc.php'; // From "custom" directory
+        $mod_path = "/custom";
 }
 
 global $db, $langs, $user;
 
-dol_include_once('/chat/class/chat.class.php');
+dol_include_once($mod_path.'/chat/class/chat.class.php');
 
 // Get parameters
 $action	= GETPOST('action','alpha');
@@ -59,7 +62,7 @@ if (isset($action) && ! empty($action))
 
             if ($result)
             {
-                include_once DOL_DOCUMENT_ROOT.'/chat/tpl/message.tpl.php';
+                include_once DOL_DOCUMENT_ROOT.$mod_path.'/chat/tpl/message.tpl.php';
             }
         } // fin if ($action == 'fetch_msgs')
         else if ($action == 'fetch_users')
@@ -71,7 +74,7 @@ if (isset($action) && ! empty($action))
 
             if ($result)
             {
-                include_once DOL_DOCUMENT_ROOT.'/chat/tpl/user.tpl.php';
+                include_once DOL_DOCUMENT_ROOT.$mod_path.'/chat/tpl/user.tpl.php';
             }
         } // fin if ($action == 'fetch_users')
 }

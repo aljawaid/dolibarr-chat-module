@@ -20,7 +20,7 @@
  *       \brief      Template of message(s)
  */
 
-require_once DOL_DOCUMENT_ROOT.'/chat/lib/chat.lib.php';
+require_once DOL_DOCUMENT_ROOT.$mod_path.'/chat/lib/chat.lib.php';
 
 
 global $db, $conf, $user;
@@ -77,7 +77,7 @@ foreach ($messages as $msg)
                     {
                         $user_to = $is_mine ? $msg->fk_user_to : $msg->fk_user;
                 ?>
-                    <a class="<?php echo $is_mine ? "more-width" : ""; ?>" href="<?php echo DOL_URL_ROOT.'/chat/index.php?action=private_msg&user_to_id='.$user_to; ?>">
+                    <a class="<?php echo $is_mine ? "more-width" : ""; ?>" href="<?php echo DOL_URL_ROOT.$mod_path.'/chat/index.php?action=private_msg&user_to_id='.$user_to; ?>">
                           <?php echo $is_mine ? $langs->trans("NewMessage") : $langs->trans("Reply"); ?>
                     </a>
                 <?php
@@ -85,7 +85,7 @@ foreach ($messages as $msg)
                     else if (! $is_mine)
                     {
                 ?>
-                        <a class="more-width" href="<?php echo DOL_URL_ROOT.'/chat/index.php?action=private_msg&user_to_id='.$msg->fk_user; ?>">
+                        <a class="more-width" href="<?php echo DOL_URL_ROOT.$mod_path.'/chat/index.php?action=private_msg&user_to_id='.$msg->fk_user; ?>">
                             <?php echo $langs->trans("SendPrivateMessage"); ?>
                         </a>
                 <?php
@@ -94,7 +94,7 @@ foreach ($messages as $msg)
                     if ($user->rights->chat->delete->all || ($is_mine && $user->rights->chat->delete->mine))
                     {
                 ?>
-                    <a href="<?php echo DOL_URL_ROOT.'/chat/index.php?action=delete&msg_id='.$msg->id; ?>">
+                    <a href="<?php echo DOL_URL_ROOT.$mod_path.'/chat/index.php?action=delete&msg_id='.$msg->id; ?>">
                         <?php echo $langs->trans("DeleteMessage"); ?>
                     </a>
                 <?php
