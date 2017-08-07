@@ -1,0 +1,84 @@
+# <one line to give the program's name and a brief idea of what it does.>
+# Copyright (C) <year>  <name of author>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+#
+# Generic
+#
+
+# Module label 'ModuleXXXName'
+# (where XXX is value of numeric property 'numero' of module)
+Module500001Name = Chat
+# Module description 'ModuleXXXDesc'
+# (where XXX is value of numeric property 'numero' of module)
+Module500001Desc = Chat module for Dolibarr
+# Permissions
+Permission500002 = Read messages & download attachments
+Permission500003 = Delete his own messages
+Permission500004 = Delete any message(s)
+
+#
+# Admin page
+#
+ChatSetup = Chat setup
+Settings = Settings
+ChatConf = Chat configuration
+ChatAutoRefreshTime = Chat auto refresh time in seconds (Default: 5 seconds)
+ChatMaxMsgNumber = Maximum number of messages shown on chat (Default: 50)
+ShowImagesPreview = Show images preview on chat
+
+#
+# About page
+#
+About = About
+ChatAbout = About chat
+ChatAboutPageDesc = <b>Chat</b><br/><br/>Simple & easy to use chat module<br/>work on dolibarr 3.9 & higher
+
+#
+# Sample page
+#
+ChatIndexPageName = Live Chat
+TypeAMessagePlaceHolder = Type a message...
+SearchPlaceHolder = Search...
+SendPrivateMessage = Send private message
+SendMessage = Send Message
+AddFiles = Add Files
+PrivateMessageTo = Private message to :
+PrivateMessageFrom = Private message from :
+LastLogin = Last login :
+NoMessageFound = No message found...
+Reply = Reply
+Online = Online
+NewMessage = New message
+DeleteMessage = Delete
+EnterToSend = Enter to send
+
+#
+# Sample box
+#
+MyBox = My box
+MyBoxDescription = My box description
+
+#
+# Menu
+#
+ChatTopMenu = Chat
+
+#
+# Error/Warning Messages
+#
+PleaseTypeAMessage = Please type a message
+CannotSendMessageToYourself = You cannot send a message to yourself
+CannotDeleteMessage = You cannot delete this message
